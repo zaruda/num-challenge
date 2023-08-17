@@ -5,6 +5,7 @@ interface LineChartProps {
   data: LineChartData<unknown>[];
 }
 
+// TODO: Fix console warning regarding defaultProps
 // TODO: Adjust parameters to enhance visuals
 export const LineChart = ({ data }: LineChartProps) => (
   <ResponsiveLine
