@@ -26,6 +26,9 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 ## Notes
 
+Once you open the application. You can see form on the left side of the screen and chart on the right. Chart is prefilled with dummy data. Chart will display calculated data once form is filled and valid.
+Valid form state could be saved by clicking Submit button. You can see actual state in browser console
+
 You can find some TODO items. They usually pointing out to the code which should be improved
 
 ### Folder structure
