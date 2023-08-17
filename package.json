@@ -1,0 +1,82 @@
+{
+  "name": "numos-challenge",
+  "version": "0.0.0",
+  "license": "MIT",
+  "author": "Ilya Zarudny <zaruda46@gmail.com>",
+  "scripts": {
+    "build": "next build",
+    "dev": "next dev",
+    "format": "prettier --check --ignore-path .gitignore --write .",
+    "lint": "next lint",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^3.2.0",
+    "@nivo/core": "^0.83.0",
+    "@nivo/line": "^0.83.0",
+    "flowbite": "^1.8.1",
+    "flowbite-react": "^0.5.0",
+    "lodash": "^4.17.21",
+    "next": "^13.4.16",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-hook-form": "^7.45.4",
+    "zod": "^3.22.1"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.197",
+    "@types/node": "^18.11.12",
+    "@types/react": "18.2.20",
+    "@typescript-eslint/eslint-plugin": "^6.4.0",
+    "@typescript-eslint/parser": "^6.4.0",
+    "autoprefixer": "10.4.15",
+    "eslint": "^8.47.0",
+    "eslint-config-next": "^13.4.16",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-tailwindcss": "^3.13.0",
+    "postcss": "^8.4.28",
+    "prettier": "^3.0.2",
+    "prettier-plugin-organize-imports": "^3.2.3",
+    "tailwindcss": "^3.3.3",
+    "typescript": "^5.1.6"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "eslintConfig": {
+    "extends": [
+      "eslint:recommended",
+      "next/core-web-vitals",
+      "plugin:@typescript-eslint/strict",
+      "plugin:jsx-a11y/recommended",
+      "plugin:prettier/recommended",
+      "plugin:react/recommended",
+      "plugin:react-hooks/recommended",
+      "plugin:tailwindcss/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "ecmaFeatures": {
+        "jsx": true
+      },
+      "project": "./tsconfig.json"
+    },
+    "root": true,
+    "rules": {
+      "no-undef": "off",
+      "react/react-in-jsx-scope": "off",
+      "tailwindcss/classnames-order": [
+        "warn",
+        {
+          "officialSorting": true
+        }
+      ]
+    }
+  }
+}
