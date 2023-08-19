@@ -1,5 +1,6 @@
 import { TextInputProps as FbTextInputProps } from "flowbite-react";
-export type TextInputProps = FbTextInputProps & {
+
+export type TextProps = FbTextInputProps & {
   name: string;
   label?: string;
 };

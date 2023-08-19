@@ -1,14 +1,17 @@
+import { memo, useId } from "react";
 import { Label, TextInput as FbTextInput } from "flowbite-react";
+import { UseFormReturn } from "react-hook-form";
 
-import { TextInputProps } from "./types";
-import { useFormContext } from "react-hook-form";
+import { TextProps } from "./types";
 
-export const TextInput = ({ name, label, ...rest }: TextInputProps) => {
-  const {
-    register,
-    formState: { errors },
-  } = useFormContext();
-
+const Component = ({
+  name,
+  label,
+  register,
+  formState: { errors },
+  ...rest
+}: TextProps & UseFormReturn) => {
+  const id = useId();
   const error = errors[name]?.message;
   const hasError = !!error;
 
@@ -16,13 +19,13 @@ export const TextInput = ({ name, label, ...rest }: TextInputProps) => {
     <>
       {label && (
         <Label
-          htmlFor={name}
+          htmlFor={id}
           value={label}
           color={hasError ? "failure" : "gray"}
         />
       )}
       <FbTextInput
-        id={name}
+        id={id}
         color={hasError ? "failure" : "gray"}
         helperText={<>{error}</>}
         {...register(name, { valueAsNumber: rest.type === "number" })}
@@ -30,3 +33,11 @@ export const TextInput = ({ name, label, ...rest }: TextInputProps) => {
     </>
   );
 };
+
+export const Text = memo(
+  Component,
+  (prevProps, nextProps) =>
+    prevProps.formState.isDirty === nextProps.formState.isDirty,
+);
+
+export type { TextProps };

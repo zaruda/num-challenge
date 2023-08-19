@@ -50,7 +50,7 @@ export class PensionPlan {
 
     const calculateCapital = (
       currentMonth: number,
-      currentCapital: number
+      currentCapital: number,
     ): PlanProjection[] => {
       if (currentMonth === ageDifferenceInMonths + 1) {
         return projection;
@@ -65,7 +65,7 @@ export class PensionPlan {
 
       return calculateCapital(
         currentMonth + 1,
-        projection[projection.length - 1]!.amount
+        projection[projection.length - 1]!.amount,
       );
     };
     // TODO: Filter part could be improved (removed) to be more straightforward

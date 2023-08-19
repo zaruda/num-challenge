@@ -13,7 +13,7 @@ export class LineChartData<TData> {
       xAxis: AxisDataExtractor<TData>;
       yAxis: AxisDataExtractor<TData>;
       color?: string;
-    }
+    },
   ) {
     this.id = 1;
     this.data = data.map((d) => ({
