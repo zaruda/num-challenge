@@ -3,7 +3,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { usePensionPlansContext } from "@app/context";
 import { PensionPlan } from "@app/domain";
-import { TextInput, Select, Form } from "@app/components/forms";
+import { Input, Form } from "@app/components/forms";
 
 import { INTEREST_RATE_TO_LABEL, validationSchema } from "./constants";
 import { FormValues, ConfiguratorProps, Field, InterestRate } from "./types";
@@ -34,7 +34,7 @@ export const Configurator = ({ stateRenderer }: ConfiguratorProps) => {
         onSubmit={onSubmit}
       >
         <div className="mb-2 block">
-          <TextInput
+          <Input.Text
             name={Field.Deposit}
             label="Deposit"
             type="number"
@@ -43,7 +43,7 @@ export const Configurator = ({ stateRenderer }: ConfiguratorProps) => {
         </div>
 
         <div className="mb-2 block">
-          <TextInput
+          <Input.Text
             name={Field.MonthlyContribution}
             label="Monthly contribution"
             type="number"
@@ -52,7 +52,7 @@ export const Configurator = ({ stateRenderer }: ConfiguratorProps) => {
         </div>
 
         <div className="mb-2 block">
-          <TextInput
+          <Input.Text
             name={Field.RetirementAge}
             label="Desired retirement age"
             type="number"
@@ -61,17 +61,21 @@ export const Configurator = ({ stateRenderer }: ConfiguratorProps) => {
         </div>
 
         <div className="mb-2 block">
-          <TextInput name={Field.Age} label="Current age" type="number" />
+          <Input.Text name={Field.Age} label="Current age" type="number" />
         </div>
 
         <div className="mb-2 block">
-          <Select name={Field.InterestRate} label="Risk level" type="number">
+          <Input.Select
+            name={Field.InterestRate}
+            label="Risk level"
+            type="number"
+          >
             {Object.entries(INTEREST_RATE_TO_LABEL).map(([key, label]) => (
               <option key={key} value={key}>
                 {label}
               </option>
             ))}
-          </Select>
+          </Input.Select>
         </div>
 
         <Button type="submit" disabled={!form.formState.isValid}>
